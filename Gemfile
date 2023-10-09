@@ -40,11 +40,6 @@ gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-gem "rest-client"
-
-gem "bootstrap"
-
-gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -72,6 +67,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "font-awesome-sass", "~> 6.4.2"
-gem "letter_opener"
-gem "devise", "~> 4.9"
