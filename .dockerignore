@@ -4,34 +4,34 @@
 /.git/
 
 # Ignore bundler config.
-/.bundle
+/web/.bundle
 
 # Ignore all environment files (except templates).
 /.env*
 !/.env*.erb
 
 # Ignore all default key files.
-/config/master.key
-/config/credentials/*.key
+/web/config/master.key
+/web/config/credentials/*.key
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/web/log/*
+/web/tmp/*
+!/web/log/.keep
+!/web/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
-!/tmp/pids/.keep
+/web/tmp/pids/*
+!/web/tmp/pids/.keep
 
 # Ignore storage (uploaded files in development and any SQLite databases).
-/storage/*
-!/storage/.keep
-/tmp/storage/*
-!/tmp/storage/.keep
+/web/storage/*
+!/web/storage/.keep
+/web/tmp/storage/*
+!/web/tmp/storage/.keep
 
 # Ignore assets.
-/node_modules/
-/app/assets/builds/*
-!/app/assets/builds/.keep
-/public/assets
+/web/node_modules/
+/web/app/assets/builds/*
+!/web/app/assets/builds/.keep
+/web/public/assets
