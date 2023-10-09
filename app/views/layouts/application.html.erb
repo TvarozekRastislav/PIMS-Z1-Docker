@@ -1,70 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>DockerApp</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+  <head>
+    <title>DockerApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-  <style>
-      body {
-          background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
-          background-size: cover; /* Cover the entire viewport */
-          background-repeat: no-repeat;
-          height: 100vh; /* Set the body height to 100% of the viewport height */
-          margin: 0; /* Remove default body margin */
-          padding: 0; /* Remove default body padding */
-      }
-  </style>
-</head>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
 
-<body>
-<%= render "shared/navbar" %>
-<% if flash[:notice]%>
-  <div class="alert alert-info mt-4" role="alert">
-    <%= flash[:notice].html_safe%>
-  </div>
-
-<%end%>
-<% if flash[:alert]%>
-  <div class="alert alert-warning mt-14" role="alert">
-    <%= flash[:alert].html_safe%>
-  </div>
-<%end%>
-<%= yield %>
-<!-- Footer Section -->
-<footer class="bg-dark text-light mt-5 p-3">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h3>Metropolitan Museum of Art</h3>
-        <p>1000 Fifth Avenue, New York, NY 10028</p>
-        <p>Phone: (555) 123-4567</p>
-        <p>Email: info@metmuseum.org</p>
-      </div>
-      <div class="col-md-4">
-        <h3>Quick Links</h3>
-        <ul class="list-unstyled">
-          <li><a href="/about">Home</a></li>
-          <li><a href="https://www.metmuseum.org/exhibitions">Exhibitions</a></li>
-          <li><a href="https://www.metmuseum.org/art/the-collection">Art Collections</a></li>
-          <li><a href="https://www.metmuseum.org/events/whats-on">Events</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <!-- Social Media Links -->
-        <h3>Follow Us</h3>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="https://www.facebook.com/metmuseum"><i class="fab fa-facebook"></i></a></li>
-          <li class="list-inline-item"><a href="https://twitter.com/metmuseum"><i class="fab fa-twitter"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.instagram.com/metmuseum/"><i class="fab fa-instagram"></i></a></li>
-          <li class="list-inline-item"><a href="https://www.youtube.com/user/metmuseum"><i class="fab fa-youtube"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</footer>
-</body>
+  <body>
+    <%= yield %>
+  </body>
 </html>

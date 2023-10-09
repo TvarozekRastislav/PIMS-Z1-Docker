@@ -28,7 +28,6 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
-.idea
 
 /public/assets
 
