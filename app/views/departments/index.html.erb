@@ -1,0 +1,15 @@
+<div class="row m-3">
+  <% @departments.each do |d| %>
+    <% url = "/#{d["departmentId"]}/souvenirs" %>
+    <div class="col-md-4">
+      <div class="card mb-3 text-dark">
+        <a href="<%= url %>">
+          <%= image_tag "door.jpeg", class: "card-img-top", width: "200", height: "auto" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= d["displayName"] %></h5>
+          </div>
+        </a>
+      </div>
+    </div>
+  <% end %>
+</div>
