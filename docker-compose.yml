@@ -11,8 +11,8 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-    ports:
-      - "5432:5432"
+    expose:
+      - "5432"
 
   nginx:
     image: nginx:latest
@@ -40,8 +40,23 @@ services:
       - app-storage:/rails/storage
     depends_on:
       - db
+    expose:
+      - "3000"
+    links:
+      - "api:oblique_throw_api"
+
+  api:
+    image: fastapi
+    container_name: api
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+    #expose:
+    #  - "1000"
     ports:
-      - "3000:3000"
+      - "1000:80"
 
 volumes:
   postgres_data: {}
