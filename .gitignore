@@ -33,5 +33,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /web/config/master.key
+api/app/__pycache__/
 
 .idea
