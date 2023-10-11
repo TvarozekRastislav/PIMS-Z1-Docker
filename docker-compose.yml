@@ -53,6 +53,9 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_HOST=${POSTGRES_HOST}
+    # TODO:: remove
+    volumes:
+      - ./api/app:/app
     #expose:
     #  - "1000"
     ports:
