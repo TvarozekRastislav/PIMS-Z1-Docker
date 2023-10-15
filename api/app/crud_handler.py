@@ -1,11 +1,15 @@
 from db_utils import psg2_query
 import pandas as pd
 
+FACT_TABLE = "oblique_thow_fact"
 
-# TODO:: define fact table const
+
 # TODO:: protec from sql injection
-# TODO:: check if id does not exists
 def get_all() -> pd.DataFrame:
+    """
+    select everything from fact table
+    :return: rows as pandas dataframe
+    """
     query = "select * from oblique_thow_fact;"
     result = psg2_query(query)
 
@@ -13,25 +17,39 @@ def get_all() -> pd.DataFrame:
 
 
 def get_throw_id(throw_id: str) -> pd.DataFrame:
-    query = f"select * from oblique_thow_fact where throw_id = {throw_id};"
+    """
+    select everything per throw_id from fact table
+    :param throw_id: identifier of throw
+    :return: rows as pandas dataframe
+    """
+    query = f"select * from {FACT_TABLE} where throw_id = {throw_id};"
     result = psg2_query(query)
 
     return result
 
 
 def remove_throw(throw_id: str) -> pd.DataFrame:
-    query = f"select * from oblique_thow_fact where throw_id = {throw_id};"
+    """
+    remove everything per throw id
+    :param throw_id: identifier of throw
+    :return: rows as pandas dataframe
+    """
+    query = f"select * from {FACT_TABLE} where throw_id = {throw_id};"
     result = psg2_query(query)
 
-    query = f"delete from oblique_thow_fact where throw_id = {throw_id};"
+    query = f"delete from {FACT_TABLE} where throw_id = {throw_id};"
     psg2_query(query, select=False)
 
     return result
 
 
 def insert_calc(insert_data: dict) -> dict:
-
-    query = f"select max(throw_id) as throw_id from oblique_thow_fact;"
+    """
+    insert new data into fact table
+    :param insert_data: data per fact table structure
+    :return: rows as pandas dataframe
+    """
+    query = f"select max(throw_id) as throw_id from {FACT_TABLE};"
     max_throw_id = psg2_query(query)
 
     if max_throw_id.loc[0]['throw_id'] is None:
@@ -44,7 +62,7 @@ def insert_calc(insert_data: dict) -> dict:
         y = record["y"]
         t = record["t"]
 
-        query = f"insert into oblique_thow_fact (x, y, t, throw_id) values ({x}, {y}, {t}, {throw_id});"
+        query = f"insert into {FACT_TABLE} (x, y, t, throw_id) values ({x}, {y}, {t}, {throw_id});"
         psg2_query(query, select=False)
 
     return insert_data

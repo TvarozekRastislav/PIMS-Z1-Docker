@@ -1,9 +1,16 @@
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
 import crud_handler
 import math
 
+FAVICON_PATH = 'favicon.ico'
+
 app = FastAPI()
+
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse(FAVICON_PATH)
 
 
 @app.get("/")
@@ -28,6 +35,7 @@ def remove_thorw(throw_id: str):
     return data.to_dict(orient="records")
 
 
+# calculate oblique throw from speed and angle
 @app.post("/")
 async def root(request: Request):
     G = 9.81

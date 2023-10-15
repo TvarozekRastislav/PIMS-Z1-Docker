@@ -12,7 +12,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     expose:
-      - "5432"
+      - ${POSTGRES_PORT}
 
   nginx:
     image: nginx:latest
@@ -46,6 +46,7 @@ services:
       - "api:oblique_throw_api"
 
   api:
+    build: api/.
     image: fastapi
     container_name: api
     environment:
@@ -53,10 +54,11 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
     # TODO:: remove
     volumes:
       - ./api/app:/app
-    #expose:
+    # expose:
     #  - "1000"
     ports:
       - "1000:80"
