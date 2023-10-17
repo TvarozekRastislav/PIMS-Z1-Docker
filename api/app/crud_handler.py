@@ -1,7 +1,7 @@
 from db_utils import psg2_query
 import pandas as pd
 
-FACT_TABLE = "oblique_thow_fact"
+FACT_TABLE = "oblique_throw_fact"
 
 
 # TODO:: protec from sql injection
@@ -10,7 +10,7 @@ def get_all() -> pd.DataFrame:
     select everything from fact table
     :return: rows as pandas dataframe
     """
-    query = "select * from oblique_thow_fact;"
+    query = "select * from oblique_throw_fact;"
     result = psg2_query(query)
 
     return result
