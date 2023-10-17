@@ -65,5 +65,6 @@ def insert_calc(insert_data: dict) -> dict:
         query = f"insert into {FACT_TABLE} (x, y, t, throw_id) values ({x}, {y}, {t}, {throw_id});"
         psg2_query(query, select=False)
 
+    # TODO:: should return also id
     return insert_data
 

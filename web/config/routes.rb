@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
    root "posts#index"
+   get '/api/make_api_call', to: 'api#make_api_call'
+   get '/api/make_api_call_post', to: 'api#make_api_call_post'
+
 end
