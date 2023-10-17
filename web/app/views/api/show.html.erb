@@ -1,0 +1,51 @@
+<h1><%= "Záznam hodu id#{@response_body.first["throw_id"]}" %></h1>
+<table>
+  <thead>
+  <tr>
+    <th>X</th>
+    <th>Y</th>
+    <th>T</th>
+    <th>Throw ID</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @response_body.each do |hash| %>
+    <tr>
+      <td><%= hash['x'] %></td>
+      <td><%= hash['y'] %></td>
+      <td><%= hash['t'] %></td>
+      <td><%= hash['throw_id'] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to "Zoznam hodov", api_make_api_call_path %>
+
+<style>
+    /* Define your CSS styles here */
+    h1 {
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+</style>

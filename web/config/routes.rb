@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-   root "posts#index"
-   get '/api/make_api_call', to: 'api#make_api_call'
-   get '/api/make_api_call_post', to: 'api#make_api_call_post'
+  root "api#index"
+  get '/index', to: 'api#index'
+  get '/api/make_api_call', to: 'api#make_api_call'
+  get '/api/show_throw/:id', to: 'api#show_throw', as: "show_throw"
+  get '/api/destroy_throw/:id', to: 'api#destroy_throw', as: "destroy_throw"
+  get '/api/make_api_call_post', to: 'api#make_api_call_post'
 
 end

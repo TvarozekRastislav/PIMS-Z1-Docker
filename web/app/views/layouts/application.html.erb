@@ -11,6 +11,22 @@
   </head>
 
   <body>
+  <% if flash[:notice] %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
     <%= yield %>
   </body>
 </html>
+
+<style>
+    /* Style the flash notice div */
+    .notice {
+        background-color: #4CAF50; /* Green background color */
+        color: white; /* White text color */
+        padding: 15px; /* Padding around the text */
+        text-align: center; /* Center-align the text */
+        margin-top: 20px; /* Add space at the top */
+    }
+</style>

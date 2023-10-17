@@ -1,0 +1,63 @@
+<h1>Vytvor nový hod</h1>
+
+<%= form_tag(api_make_api_call_post_path, method: :get) do %>
+  <%= label_tag :angle, "Angle:" %>
+  <%= text_field_tag :angle %>
+  <%= label_tag :speed, "Speed:" %>
+  <%= text_field_tag :speed %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<%= link_to "Zoznam hodov", api_make_api_call_path %>
+<style>
+    /* Style the h1 heading */
+    h1 {
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+    }
+
+    /* Style the form container */
+    form {
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #ccc;
+    }
+
+    /* Style form elements (labels and input fields) */
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+        background-color: #337ab7;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    /* Style the "Zoznam hodov" link */
+    a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #337ab7;
+    }
+</style>
