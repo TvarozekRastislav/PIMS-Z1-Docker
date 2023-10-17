@@ -26,8 +26,7 @@ services:
 
   web:
     build: web/.
-    image: pims/web:v1
-    container_name: web
+    image: 96325814/web:v1
     command: "./bin/rails server"
     environment:
       - RAILS_ENV=${RAILS_ENV}
@@ -44,10 +43,12 @@ services:
       - "3000"
     links:
       - "api:oblique_throw_api"
+#    deploy:
+#      replicas: 3
 
   api:
     build: api/.
-    image: fastapi
+    image: 96325814/api:v1
     container_name: api
     environment:
       - POSTGRES_DB=${POSTGRES_DB}
@@ -59,7 +60,7 @@ services:
     volumes:
       - ./api/app:/app
     # expose:
-    #  - "1000"
+    #  - "80"
     ports:
       - "1000:80"
 
